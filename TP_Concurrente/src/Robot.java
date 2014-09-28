@@ -1,7 +1,3 @@
-
-
-
-
 public class Robot {
 	
 	private int id;
@@ -61,6 +57,7 @@ public class Robot {
 	public synchronized boolean robotOn()
 	{
 		if(plazasOcupadas<1){
+
 		
 		llevar();
 		plazasOcupadas--;
@@ -68,6 +65,7 @@ public class Robot {
 		return true;}	// el true siginifica que la maquina termino de procesar
 		else {return false;}//si devuelve false la maquina nunca proceso...(no hay lugar)
 							//maquina a su maxima capacidad, no hay lugar!!
+
 	}
 	
 	

@@ -1,4 +1,3 @@
-
 public class PiezaC {
 	
 	private String id;
