@@ -31,7 +31,10 @@ public class Maquina {
 		
 	}
 	
-
+	public void maquinaOn()
+	{
+		
+	}
 
 	
 	public static void main(String[] args) {
