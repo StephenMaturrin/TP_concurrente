@@ -27,6 +27,15 @@ public class Maquina {
 	}
 
 
+	private void procesar(){
+		
+	}
+	
+	public void maquinaOn()
+	{
+		
+	}
+
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
