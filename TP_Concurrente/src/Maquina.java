@@ -1,12 +1,17 @@
 
+
+
 public class Maquina {
 	
 	private int id;
 	private int puerto;
+	private int plazasOcupadas;
+	
 
 	public Maquina(int id,int puerto) {
 		this.id=id;
 		this.puerto=puerto;		
+		plazasOcupadas=0;
 	}
 	
 	
@@ -29,17 +34,34 @@ public class Maquina {
 
 	private void procesar(){
 		
-	}
-	
-	public void maquinaOn()
-	{
+		try {
+			wait(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
-
 	
+	public synchronized boolean maquinaOn()
+	{
+		if(plazasOcupadas<2){
+		plazasOcupadas++;
+		procesar();
+		plazasOcupadas--;
+		System.out.println("maquina:"+this.id+"-> procesasndo ");
+		return true;}	// el true siginifica que la maquina termino de procesar
+		else {return false;}//si devuelve false la maquina nunca proceso...(no hay lugar)
+							//maquina a su maxima capacidad, no hay lugar!!
+	}
+	
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 	}
+
+
+
 
 }
