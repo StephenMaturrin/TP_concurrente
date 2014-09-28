@@ -6,7 +6,7 @@ public class Maquina {
 	}
 
 	
-	
+	public int uno;
 	
 	
 	public static void main(String[] args) {
