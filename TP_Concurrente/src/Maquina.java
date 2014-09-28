@@ -43,10 +43,22 @@ public class Maquina {
 		
 	}
 	
+	
+	public synchronized boolean maquinaDisponible()
+	{
+		
+		if(plazasOcupadas<2)
+		{	plazasOcupadas++;
+			return true;
+		}
+		
+		else{return false;}
+		
+	}
+	
 	public synchronized boolean maquinaOn()
 	{
 		if(plazasOcupadas<2){
-		plazasOcupadas++;
 		procesar();
 		plazasOcupadas--;
 		System.out.println("maquina:"+this.id+"-> procesasndo ");

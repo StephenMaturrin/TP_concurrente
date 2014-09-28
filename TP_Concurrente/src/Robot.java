@@ -43,14 +43,28 @@ public class Robot {
 		}
 		
 	}
+
+	public synchronized boolean robotDisponible()
+	{
+		
+		if(plazasOcupadas<1)
+		{	plazasOcupadas++;
+			return true;
+		}
+		
+		else{return false;}
+		
+	}
+	
+	
 	
 	public synchronized boolean robotOn()
 	{
-		if(plazasOcupadas<2){
-		plazasOcupadas++;
+		if(plazasOcupadas<1){
+		
 		llevar();
 		plazasOcupadas--;
-		System.out.println("maquina:"+this.id+"-> procesasndo ");
+		System.out.println("robot:"+this.id+"-> llevando ");
 		return true;}	// el true siginifica que la maquina termino de procesar
 		else {return false;}//si devuelve false la maquina nunca proceso...(no hay lugar)
 							//maquina a su maxima capacidad, no hay lugar!!
