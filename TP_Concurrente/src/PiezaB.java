@@ -5,7 +5,7 @@ public class PiezaB {
 	
 
 	public PiezaB() { //A B o C
-		id="C";
+		id="B";
 		
 	}
 
