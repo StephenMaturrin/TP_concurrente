@@ -6,24 +6,24 @@ public class PiezaA {
 
 	public PiezaA() { //A B o C
 		id="A";
-		piezas=0;
+		piezas=10;
 	}
 
-	public void generar(){
-		
-		while(true)
-		{piezas++;
-			try {
-				wait(1000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+//	public void generar(){
+//		
+//		while(true)
+//		{piezas++;
+//			try {
+//				wait(1000);
+//			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//		}
 		
 	
 
-	}
+//	}
 
 	public boolean getPiezas() {
 		

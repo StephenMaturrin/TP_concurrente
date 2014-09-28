@@ -31,13 +31,13 @@ public class Robot {
 
 	private void llevar(){
 		
-		try {
-			wait(1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+	try {
+		Thread.sleep(1000);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+		notifyAll();
 	}
 
 	public synchronized boolean robotDisponible()
@@ -49,24 +49,20 @@ public class Robot {
 		}
 		
 		else{return false;}
-		
 	}
 	
 	
 	
 	public synchronized boolean robotOn()
 	{
-		if(plazasOcupadas<1){
+		
 
 		
 		llevar();
 		plazasOcupadas--;
 		System.out.println("robot:"+this.id+"-> llevando ");
 		return true;}	// el true siginifica que la maquina termino de procesar
-		else {return false;}//si devuelve false la maquina nunca proceso...(no hay lugar)
+		//si devuelve false la maquina nunca proceso...(no hay lugar)
 							//maquina a su maxima capacidad, no hay lugar!!
 
-	}
-	
-	
 }

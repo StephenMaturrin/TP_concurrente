@@ -38,6 +38,8 @@ public class Maquina {
 			e.printStackTrace();
 		}
 		
+		notifyAll();
+		
 	}
 	
 	

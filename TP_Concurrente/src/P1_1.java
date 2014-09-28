@@ -14,10 +14,15 @@ public class P1_1 implements Runnable {
 
 	public void run() {
 		
+		
 		while(true)
 		{
 		if(maquina1.maquinaDisponible()&&robot1.robotDisponible()&&piezaA.getPiezas())
-		{robot1.robotOn();maquina1.maquinaOn();}
+		{robot1.robotOn();maquina1.maquinaOn();
+		
+		}
+		
+		
 		}
 		
 	
