@@ -12,7 +12,13 @@ public class Robot {
 	this.puerto=puerto;
 	}
 
+	private void llevar(){
+		
+	}	
 	
+	private void robotOn(){
+	
+	}
 	
 	
 	public static void main(String[] args) {
