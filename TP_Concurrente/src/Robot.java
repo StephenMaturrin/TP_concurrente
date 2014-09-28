@@ -1,7 +1,3 @@
-
-
-
-
 public class Robot {
 	
 	private int id;
@@ -46,14 +42,13 @@ public class Robot {
 	
 	public synchronized boolean robotOn()
 	{
-		if(plazasOcupadas<2){
+		if(plazasOcupadas<1){
 		plazasOcupadas++;
 		llevar();
 		plazasOcupadas--;
 		System.out.println("maquina:"+this.id+"-> procesasndo ");
-		return true;}	// el true siginifica que la maquina termino de procesar
-		else {return false;}//si devuelve false la maquina nunca proceso...(no hay lugar)
-							//maquina a su maxima capacidad, no hay lugar!!
+		return true;}	// el true siginifica que el robot termino de llevar la pieza
+		else {return false;}
 	}
 	
 	

@@ -1,6 +1,3 @@
-
-
-
 public class Maquina {
 	
 	private int id;

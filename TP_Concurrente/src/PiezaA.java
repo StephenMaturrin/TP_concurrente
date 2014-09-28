@@ -1,4 +1,3 @@
-
 public class PiezaA {
 	
 	private String id;
