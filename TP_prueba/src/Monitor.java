@@ -5,18 +5,23 @@ import java.util.concurrent.Semaphore;
 public class Monitor
 {
 	//Atributos
-	private int [] estado_actual;
-	private int [][] matriz_incidencia;
+	private int [] estado_actual={2, 10, 1,0,0};
+	int [][] matriz_incidencia = {{-1,0,1}, {-1,0,0}, {-1,1,0}, {1,-1,0},{0,1,-1}};
 	private boolean estado_valido;
 	
 //Exclusion mutua monitor
-	Semaphore exclusionMonitor = new Semaphore(1, true);
+	Semaphore mutex = new Semaphore(1, true);
+// El true es para darle equidad al semaforo, es decir que si vienen 
+//dos hilos a pedir el recurso el semaforo solamente se lo da al primero que se lo pidio
+// y luego al segundo, de lo contrario, si no pusieramos el true el semaforo podria 
+//entregar los recurso de forma desordenada y sin priordad.
+	
 	
 //Cola condicion antigua.
-	Semaphore colaAntiguos= new Semaphore(0, true);
+	Semaphore colaantiguos= new Semaphore(0, true);
 	
 //Cola entrada monitor primera vez
-	Semaphore colaEntradaMonitor = new Semaphore(0, true);
+	Semaphore mutex1 = new Semaphore(0, true);
 	
 //Cola condicion inicial.
 	Semaphore colainicial = new Semaphore(0, true);
@@ -24,10 +29,9 @@ public class Monitor
 
    
 //Constructor
-public Monitor(int[][] matriz, int[] marcado_inicial) 
+public Monitor() 
 {
-    this.matriz_incidencia = matriz;
-    this.estado_actual = marcado_inicial;
+    
     
 }
 
@@ -38,7 +42,11 @@ public void transicionPrimera(int a, int disparo)
     //Solicitar la exclusion mutua del monitor al semaforo de la cola de entrada
 	while(mutex.hasQueuedThreads())
 	{
-	mutex1.acquireUninterruptibly();
+	mutex1.acquireUninterruptibly();//el hilo pide un recurso de este semaforo y se bloquea hasta que alguno este
+									//disponible
+	//Preguntamos si algun hilo ya adquirio la exlusion mutia y si esto es verdadero
+	//el proximo hilo se bloquea en la cola del montitor
+	
 	}
 	
 	transicion(a,disparo);
@@ -50,7 +58,8 @@ public void transicion(int a,int disparo)
     //Solicitar la exclusion mutua del monitor al semaforo de la cola de entrada
 	mutex.acquireUninterruptibly();
 	estado_valido=false;
-			
+	
+		
 	int[] disparos;
 	disparos = new int[matriz_incidencia.length];
 	
