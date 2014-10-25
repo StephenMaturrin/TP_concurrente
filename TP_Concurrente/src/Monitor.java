@@ -1,4 +1,4 @@
-
+package Controler;
 
 import java.util.concurrent.Semaphore;
 
@@ -10,13 +10,13 @@ public class Monitor
 	private boolean estado_valido;
 	
 //Exclusion mutua monitor
-	Semaphore exclusionMonitor = new Semaphore(1, true);
+	Semaphore mutex = new Semaphore(1, true);
 	
 //Cola condicion antigua.
-	Semaphore colaAntiguos= new Semaphore(0, true);
+	Semaphore colaantiguos= new Semaphore(0, true);
 	
 //Cola entrada monitor primera vez
-	Semaphore colaEntradaMonitor = new Semaphore(0, true);
+	Semaphore mutex1 = new Semaphore(0, true);
 	
 //Cola condicion inicial.
 	Semaphore colainicial = new Semaphore(0, true);
@@ -50,7 +50,8 @@ public void transicion(int a,int disparo)
     //Solicitar la exclusion mutua del monitor al semaforo de la cola de entrada
 	mutex.acquireUninterruptibly();
 	estado_valido=false;
-			
+	
+		
 	int[] disparos;
 	disparos = new int[matriz_incidencia.length];
 	
